@@ -1,0 +1,9 @@
+base:
+  project: Sketch_To_ColorImg
+
+data_path:
+  colorgram_path: data\colorgram
+  train_path: data\train
+  test_path: data\test
+
+model_dir: saved_model
