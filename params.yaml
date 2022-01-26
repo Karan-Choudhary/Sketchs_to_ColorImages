@@ -4,6 +4,6 @@ base:
 data_path:
   colorgram_path: data\colorgram
   train_path: data\train
-  test_path: data\test
+  val_path: data\val
 
 model_dir: saved_model
