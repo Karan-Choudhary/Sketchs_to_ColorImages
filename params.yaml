@@ -6,4 +6,10 @@ data_path:
   train_path: data\train
   val_path: data\val
 
+data_load:
+  batch_size: 4
+  buffer_size: 4500
+  img_width: 256
+  img_height: 256
+
 model_dir: saved_model
