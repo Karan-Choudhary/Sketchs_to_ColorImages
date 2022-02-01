@@ -44,5 +44,5 @@ if __name__ =="__main__":
     args = argparse.ArgumentParser()
     args.add_argument("--config",default = "params.yaml",help="Directory params.yaml")
     parsed_args = args.parse_args()
-    tain_dataset,test_dataset = get_data(config_path = parsed_args.config)
+    train_dataset,test_dataset = get_data(config_path = parsed_args.config)
     print(train_dataset,test_dataset)

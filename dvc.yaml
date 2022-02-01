@@ -5,8 +5,8 @@ stages:
     - src\read_params.py
     - src\get_data.py
     - src\utils\preprocessing.py
-    - data\train\*.png
-    - data\val\*.png
+    - data\train
+    - data\val
     outs:
     - train_dataset
     - test_dataset
