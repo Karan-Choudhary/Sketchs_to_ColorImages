@@ -1,6 +1,4 @@
-import os
 import yaml
-import pandas as pd
 import argparse
 
 def read_params(config_path):

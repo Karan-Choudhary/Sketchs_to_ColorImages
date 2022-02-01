@@ -1,6 +1,4 @@
-import os
 import yaml
-import pandas as pd
 import argparse
 import tensorflow as tf
 from read_params import read_params
