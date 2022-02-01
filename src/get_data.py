@@ -10,7 +10,10 @@ def load_image_train(image_file):
     input_image, real_image = normalize(input_image, real_image)
     return input_image, real_image
 
-def load_image_test(image_file,IMG_WIDTH,IMG_HEIGHT):
+def load_image_test(image_file):
+    config=read_params('params.yaml')
+    IMG_WIDTH = config['data_load']['img_width']
+    IMG_HEIGHT = config['data_load']['img_height']
     input_image, real_image = load(image_file)
     input_image, real_image = resize(input_image, real_image, IMG_HEIGHT, IMG_WIDTH) 
     input_image, real_image = normalize(input_image, real_image)
@@ -22,8 +25,6 @@ def get_data(config_path):
     val_path = config['data_path']['val_path']
     BATCH_SIZE = config['data_load']['batch_size']
     BUFFER_SIZE = config['data_load']['buffer_size']
-    IMG_WIDTH = config['data_load']['img_width']
-    IMG_HEIGHT = config['data_load']['img_height']
 
 
     # Get training data
@@ -33,7 +34,7 @@ def get_data(config_path):
 
     # Get validation data
     test_dataset = tf.data.Dataset.list_files(val_path+'\\*.png')
-    test_dataset = test_dataset.map(load_image_test(IMG_WIDTH=IMG_WIDTH,IMG_HEIGHT=IMG_HEIGHT))
+    test_dataset = test_dataset.map(load_image_test)
     test_dataset = test_dataset.batch(BATCH_SIZE)
 
     return train_dataset, test_dataset
@@ -44,3 +45,4 @@ if __name__ =="__main__":
     args.add_argument("--config",default = "params.yaml",help="Directory params.yaml")
     parsed_args = args.parse_args()
     tain_dataset,test_dataset = get_data(config_path = parsed_args.config)
+    print(train_dataset,test_dataset)
