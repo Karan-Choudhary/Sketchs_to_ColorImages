@@ -12,4 +12,7 @@ data_load:
   img_width: 256
   img_height: 256
 
+model:
+  output_channels: 3
+
 model_dir: saved_model
