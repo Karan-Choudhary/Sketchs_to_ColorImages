@@ -7,6 +7,3 @@ stages:
     - src\utils\preprocessing.py
     - data\train
     - data\val
-    outs:
-    - train_dataset
-    - test_dataset

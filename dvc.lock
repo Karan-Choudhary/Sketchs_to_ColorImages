@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python src\get_data.py --config=params.yaml
+    deps:
+    - path: data\train
+      md5: 5433a929af3f5a20ed5b20444f3627dc.dir
+      size: 5227734487
+      nfiles: 14226
+    - path: data\val
+      md5: 7ff085e58961a96a9f3518c246b41b82.dir
+      size: 1299013731
+      nfiles: 3547
+    - path: src\get_data.py
+      md5: 74eeeebe9cd33c92337b37c845a492ba
+      size: 1940
+    - path: src\read_params.py
+      md5: ce04beb0708970781ee338b61f27ae19
+      size: 493
+    - path: src\utils\preprocessing.py
+      md5: e9bc723dc67441739d669cc68fba540b
+      size: 1818
