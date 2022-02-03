@@ -15,7 +15,7 @@ loss_object = tf.keras.losses.BinaryCrossentropy(from_logits=True)
 
 
 def generator_loss(disc_generated_output, gen_output, target):
-    config = read_params('config.yaml')
+    config = read_params('params.yaml')
     LAMBDA = config['loss']['lambda']
 
     gan_loss = loss_object(tf.ones_like(
