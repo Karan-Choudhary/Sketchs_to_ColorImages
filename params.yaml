@@ -15,4 +15,7 @@ data_load:
 model:
   output_channels: 3
 
+loss:
+  lambda: 100
+
 model_dir: saved_model
