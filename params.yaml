@@ -23,5 +23,5 @@ evaluate:
   final_sample: 10
 
 model_dir:
-  generator: saved_model\generator\gen.h5
-  discriminator: saved_model\discriminator\disc.h5
+  generator: saved_models\generator\gen.h5
+  discriminator: saved_models\discriminator\disc.h5

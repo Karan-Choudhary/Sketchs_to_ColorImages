@@ -19,5 +19,5 @@ stages:
     - src\model\sample.py
     - src\model\loss\losses.py
     outs:
-    - saved_model\generator\gen.h5
-    - saved_model\discriminator\disc.h5
+    - saved_models\generator\gen.h5
+    - saved_models\discriminator\disc.h5
