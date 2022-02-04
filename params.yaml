@@ -19,4 +19,9 @@ model:
 loss:
   lambda: 100
 
-model_dir: saved_model
+evaluate:
+  final_sample: 10
+
+model_dir:
+  generator: saved_model\generator\gen.h5
+  discriminator: saved_model\discriminator\disc.h5
