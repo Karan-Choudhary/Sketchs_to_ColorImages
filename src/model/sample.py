@@ -21,7 +21,7 @@ def upsample(filters, size, shape, apply_dropout=False):
 
     result = tf.keras.Sequential()
     result.add(
-        tf.keras.layers.Conv2DTranspose(filter, size, strides=2, batch_input_shape=shape,
+        tf.keras.layers.Conv2DTranspose(filters, size, strides=2, batch_input_shape=shape,
                                         padding='same',
                                         kernel_initializer=initializer,
                                         use_bias=False))
@@ -45,7 +45,7 @@ def downs(filters, size, apply_batchnorm=True):
                                kernel_initializer=initializer, use_bias=False))
 
     if apply_batchnorm:
-        result.add(tf.keras.layer.BatchNormalization())
+        result.add(tf.keras.layers.BatchNormalization())
 
     result.add(tf.keras.layers.LeakyReLU())
 

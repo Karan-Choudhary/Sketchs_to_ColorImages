@@ -1,5 +1,5 @@
 import tensorflow as tf
-from sample import downsample, upsample, downs
+from model.sample import downsample, upsample, downs
 import argparse
 import yaml
 
