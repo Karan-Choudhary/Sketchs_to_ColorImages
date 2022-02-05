@@ -25,3 +25,6 @@ evaluate:
 model_dir:
   generator: saved_models\generator\gen.h5
   discriminator: saved_models\discriminator\disc.h5
+
+generate_output:
+  output_path: Results
