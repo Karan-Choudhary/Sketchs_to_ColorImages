@@ -20,3 +20,15 @@ stages:
     - path: src\utils\preprocessing.py
       md5: a6279a9bdbbdf8cca74ffab260f65ddc
       size: 1903
+  evaluate_model:
+    cmd: python src\evaluate.py --config=params.yaml
+    deps:
+    - path: src\display\showOutput.py
+      md5: 83b5184ed9b62d0af740ffca965a82f3
+      size: 454
+    - path: src\get_data.py
+      md5: 0563890f31e5b5e530834d9be7c0cd56
+      size: 1992
+    - path: src\read_params.py
+      md5: 51faee5625d536ded2268679be1b2e12
+      size: 521
