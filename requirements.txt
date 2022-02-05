@@ -1,0 +1,4 @@
+matplotlib==3.4.2
+PyYAML==6.0
+tensorflow==2.7.0
+argparse
