@@ -24,11 +24,16 @@ stages:
     cmd: python src\evaluate.py --config=params.yaml
     deps:
     - path: src\display\showOutput.py
-      md5: 83b5184ed9b62d0af740ffca965a82f3
-      size: 454
+      md5: fcd4f48ca463c5a85968851804b56ffa
+      size: 607
     - path: src\get_data.py
       md5: 0563890f31e5b5e530834d9be7c0cd56
       size: 1992
     - path: src\read_params.py
       md5: 51faee5625d536ded2268679be1b2e12
       size: 521
+    outs:
+    - path: Results
+      md5: efdd83ee5462d24726b52ce896d06051.dir
+      size: 1883710
+      nfiles: 10
