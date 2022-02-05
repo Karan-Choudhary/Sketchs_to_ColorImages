@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
+import datetime
+import os
 
-def generate_images(model,test_input,tar):
+def generate_images(model,test_input,tar,output_path):
     prediction = model(test_input,training=True)
     plt.figure(figsize=(15,15))
 
@@ -12,4 +14,5 @@ def generate_images(model,test_input,tar):
         plt.title(title[i])
         plt.imshow(display_list[i]*0.5*0.5)
         plt.axis('off')
+    plt.savefig(os.path.join(output_path,"{}_result.png".format(datetime.datetime.now().strftime("%H-%M-%S"))))
     plt.show()
