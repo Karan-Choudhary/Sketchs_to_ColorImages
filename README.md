@@ -17,16 +17,22 @@ pip install -r requirements.txt
 
 ### Usage:
 * Change parameters and directories according to your system (recommendation - do not change) in [params.yaml](https://github.com/Karan-Choudhary/Sketchs_to_ColorImages/blob/main/params.yaml).
-* Setup the Directory named ***Results*** in the same directory.
-* Make sure you have DVC initialized in the same directory</br>
+* Setup the Directory named ***Results*** in the root directory.
+* Make sure you have DVC initialized in the root directory</br>
 You can do it with the command:
 ```
 dvc init
 ```
 * Add **data\train** & **data\val** for data tracking in dvc by using command:
+For Windows-
 ```
 dvc add data\train
 dvc add data\val
+```
+For Linux-
+```
+dvc add data/train
+dvc add data/val
 ```
 * Finally, run:
 ```
