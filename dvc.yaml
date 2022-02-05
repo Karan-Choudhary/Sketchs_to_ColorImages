@@ -8,19 +8,19 @@ stages:
     - data\train
     - data\val
   
-  # train_model:
-  #   cmd: python src\train_model.py --config=params.yaml
-  #   deps:
-  #   - src\get_data.py
-  #   - src\train_evaluate.py
-  #   - src\display\showOutput.py
-  #   - src\model\train.py
-  #   - src\model\build.py
-  #   - src\model\sample.py
-  #   - src\model\loss\losses.py
-  #   outs:
-  #   - saved_models\generator\gen.h5
-  #   - saved_models\discriminator\disc.h5
+  train_model:
+    cmd: python src\train_model.py --config=params.yaml
+    deps:
+    - src\get_data.py
+    - src\train_evaluate.py
+    - src\display\showOutput.py
+    - src\model\train.py
+    - src\model\build.py
+    - src\model\sample.py
+    - src\model\loss\losses.py
+    outs:
+    - saved_models\generator\gen.h5
+    - saved_models\discriminator\disc.h5
 
   evaluate_model:
     cmd: python src\evaluate.py --config=params.yaml
