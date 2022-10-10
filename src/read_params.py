@@ -5,7 +5,8 @@ import argparse
 def read_params(config_path):
     with open(config_path, 'r') as stream:
         try:
-            config = yaml.load(stream)
+            # config = yaml.load(stream)
+            config = yaml.load(stream, Loader=yaml.FullLoader)
         except yaml.YAMLError as exc:
             print(exc)
     return config
