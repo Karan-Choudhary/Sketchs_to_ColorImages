@@ -14,7 +14,7 @@ data_load:
 
 model:
   output_channels: 3
-  epochs: 100
+  epochs: 35
 
 loss:
   lambda: 100
