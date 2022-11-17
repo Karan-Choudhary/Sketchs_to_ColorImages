@@ -90,7 +90,7 @@ def home():
             image_path = os.path.join("results", image_path)
             encoded_images.append(get_response_image(image_path))
         
-        return jsonify({"images": encoded_images})
+        return jsonify({"result": encoded_images})
     
 if __name__ == "__main__":
     app.run()
