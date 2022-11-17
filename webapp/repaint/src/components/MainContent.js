@@ -5,10 +5,10 @@ import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import { Preview } from './Preview';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const MainContent = () => {
+export const MainContent = (props) => {
 
   let someStyle = {
     // minHeight: '85vh',
@@ -22,7 +22,7 @@ export const MainContent = () => {
   };
 
   const [SliderValue, setSliderValue] = React.useState(8);
-  const [ImagesNames, setImagesNames] = React.useState([]);
+  // const [ImagesNames, setImagesNames] = React.useState([]);
 
   const ImageSlider = styled(Slider)({
     color: '#FFFFFF',
@@ -64,11 +64,6 @@ export const MainContent = () => {
     },
   });
 
-  // const handleSliderChange = event => {
-  //   setSliderValue(event.target.value);
-  //   console.log(event.target.value);
-  // }
-
 
   const inputRef = useRef(null);
 
@@ -76,20 +71,16 @@ export const MainContent = () => {
     inputRef.current.click();
   };
 
+  let navigate  = useNavigate();
+
   const Proceed = () => {
-    console.log("Proceed");
+        navigate('/Preview');
   };
 
   const handleFileChange = event => {
     let fileArray = event.target.files;
-    let fileNames = [];
-    for (let i = 0; i < fileArray.length; i++) {
-      fileNames.push(fileArray[i].name);
-    }
-    setImagesNames(fileNames);
+    props.setImagesNames(fileArray);
   };
-
-  // console.log(ImagesNames);
 
   return (
     <>

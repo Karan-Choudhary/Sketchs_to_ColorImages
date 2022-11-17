@@ -3,9 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import { MainContent } from './components/MainContent';
 import { Preview } from './components/Preview';
-import { Loading } from './components/Loading';
 import { Output } from './components/Output';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,7 +13,14 @@ import {
 
 function App() {
 
-  const imgs = ['asdfghjkl','lkjhgfdsa','qwertyuiop','poiuytrewq'];
+  const [ImagesNames, setImagesNames] = useState([]);
+
+  const [resultImages, setResultImages] = useState([]);
+
+
+
+  // console.log(ImagesNames);
+
 
   return (
     <>
@@ -23,13 +29,25 @@ function App() {
       <Routes>
           <Route exact path="/" element={
             <>
-            {/* <MainContent /> */}
-            {/* <Preview imgArray={imgs} /> */}
-            {/* <Loading/> */}
-            <Output/>
+            <MainContent setImagesNames={setImagesNames}/>
             </>
           }>
           </Route>
+
+          <Route exact path="/Preview" element={
+            <>
+            <Preview ImagesNames={ImagesNames} setResultImages={setResultImages} />
+            </>
+          }>
+          </Route>
+
+          <Route exact path="/Output" element={
+            <>
+            <Output resultImages={resultImages}/>
+            </>
+          }>
+          </Route>
+
         </Routes>
       {/* <Footer/> */}
     </Router>

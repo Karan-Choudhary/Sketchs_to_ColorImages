@@ -3,6 +3,8 @@ import {useEffect} from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export const Preview = (props) => {
 
@@ -68,24 +70,49 @@ export const Preview = (props) => {
   //   },
   // ];
 
-  const [ImageData, setImageData] = React.useState([]);
+  const [ImageData, setImageData] = React.useState([ ]);
+  let navigate  = useNavigate();
+
+  // console.log(props.ImagesNames);
+  
 
   useEffect(() => {
     const objList = [];
-    for(let i = 0; i < props.imgArray.length; i++)
+    for(let i = 0; i < props.ImagesNames.length; i++)
     {
       objList.push({
-        img: props.imgArray[i],
+        img: URL.createObjectURL(props.ImagesNames[i]),
         title: i.toString()
       })
     }
     setImageData(objList);
-  },[props.imgArray]);
+  },[props.ImagesNames]);
+
+
+  // console.log(ImageData);
   
   
 
   const Proceed = () => {
-    console.log("Proceed");
+        const formData = new FormData();
+
+    for(let i=0; i<props.ImagesNames.length; i++){
+      formData.append('images', props.ImagesNames[i]);
+    }
+
+    // console.log(formData.getAll('files'));
+    
+
+    axios.post('http://127.0.0.1:5000/getFiles', formData).then((response) => {
+      console.log(response.data.result);
+
+      props.setResultImages(response.data.result);
+
+    navigate('/Output');
+
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   return (
@@ -93,13 +120,13 @@ export const Preview = (props) => {
       <div style={someStyle}>
         <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center' }}>
           <ImageList sx={{ width: 700, height: 450, borderRadius: '3%' }} cols={4} rowHeight={164}>
-            {ImageData.map((item) => (
-              <ImageListItem key={item.img}>
+              {ImageData.map((item) => (
+              <ImageListItem key={item.title}>
                 <img
-                  src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                  srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                  // src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                  src = {item.img}
+                  // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                   alt={item.title}
-                  // loading="lazy"
                   style={{ borderRadius: '8%' }}
                 />
               </ImageListItem>
