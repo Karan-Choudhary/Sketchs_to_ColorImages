@@ -2,3 +2,8 @@ matplotlib==3.4.2
 PyYAML==6.0
 tensorflow==2.7.0
 argparse
+Flask
+flask-cors
+numpy
+Pillow
+base64
