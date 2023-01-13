@@ -1,4 +1,5 @@
 ## Sketch to Color Image Generation Using Conditional GANs
+* [Try the application](ec2-18-180-59-62.ap-northeast-1.compute.amazonaws.com)
 * Sketch to Color Image generation is an image-to-image translation model using [Conditional Generative Adversarial Networks](https://arxiv.org/abs/1411.1784)
 * This project is developed with [DVC](https://dvc.org/) pipeline
 * Dataset used - [Anime Sketch Colorization Pair](https://www.kaggle.com/ktaebum/anime-sketch-colorization-pair)\
